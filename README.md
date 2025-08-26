@@ -12,17 +12,55 @@ task is even more significant: to study traffic data structures and prepare data
 - Grouping of data to reduce dataset size
 - Analysis of seasonality
 
-
-
-
+## Installation
 
 To run this project, you will need to install several Python libraries.
 It is recommended to use a virtual environment.
 Here’s how to set it up and install the required packages:
 
-
+```bash
 python -m venv venv
 source venv/bin/activate   # On Linux/Mac
 venv\Scripts\activate      # On Windows
 
 pip install numpy pandas plotly seaborn matplotlib
+
+import json
+import warnings
+import numpy as np
+import pandas as pd
+import plotly.express as px
+import seaborn as sns; sns.set()
+import matplotlib.pyplot as plt
+
+```
+## Exploration of Flanders road data
+
+### documentation
+- Voertuigklasse 1 = Deze voertuigklasse was voorzien voertuigen met geschatte lengte tussen 0m en 1,00m. Deze gegevens worden door AWV en het verkeerscentrum niet meer gebruikt. (vb. moto's.) De sporadische metingen in deze voertuigklasse zijn weinig tot niet betrouwbaar.
+
+- Voertuigklasse 2 = Personenwagens = voertuigen met geschatte lengte tussen 1,00m en 4,90m
+
+- Voertuigklasse 3 = Bestelwagens = voertuigen met geschatte lengte tussen 4,90m en 6,90m
+
+- Voertuigklasse 4 = Ongelede vrachtwagens = voertuigen metvgeschatte lengte tussen 6,90m en 12,00m (bv.:Vrachtwagen of trekker)
+
+- Voertuigklasse 5 = Gelede vrachtwagens of bussen= voertuigen met geschatte lengte langer dan 12,00m
+
+bv.: vrachtwagen+aanhangwagen, trekker+aanhangwagen of bus
+
+voertuigsnelheid rekenkundig = Som (vi) / n (met vi = individuele snelheid van een voertuig binnen deze voertuigklasse)
+
+Waarde bereik 0..200 km/h
+
+Bijzondere waarden:
+    - 251: Initiële waarde
+    - 254: Berekening niet mogelijk
+    - 252: geen voertuigen binnen deze voertuigklasse gepasseerd.
+voertuigsnelheid harmonisch = n / Som(1/vi) (met vi = individuele snelheid van een voertuig binnen deze voertuigklasse)
+
+                      Bijzondere waarden:                    # Special values:
+                     - 251: Initiële waarde                  # Initial value
+                     - 254: Berekening niet mogelijk         # Calculation not possible
+                     - 252: geen voertuigen binnen deze voertuigklasse gepasseerd.
+                            #no vehicles passed within this vehicle class
