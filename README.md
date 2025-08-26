@@ -50,17 +50,11 @@ import matplotlib.pyplot as plt
 bv.: vrachtwagen+aanhangwagen, trekker+aanhangwagen of bus
 
 voertuigsnelheid rekenkundig = Som (vi) / n (met vi = individuele snelheid van een voertuig binnen deze voertuigklasse)
+voertuigsnelheid harmonisch = n / Som(1/vi) (met vi = individuele snelheid van een voertuig binnen deze voertuigklasse)
 
 Waarde bereik 0..200 km/h
 
-Bijzondere waarden:
-    - 251: Initiële waarde
-    - 254: Berekening niet mogelijk
-    - 252: geen voertuigen binnen deze voertuigklasse gepasseerd.
-voertuigsnelheid harmonisch = n / Som(1/vi) (met vi = individuele snelheid van een voertuig binnen deze voertuigklasse)
-
-                      Bijzondere waarden:                    # Special values:
-                     - 251: Initiële waarde                  # Initial value
-                     - 254: Berekening niet mogelijk         # Calculation not possible
-                     - 252: geen voertuigen binnen deze voertuigklasse gepasseerd.
-                            #no vehicles passed within this vehicle class
+Bijzondere waarden: # Special values:
+- 251: Initiële waarde # Initial value
+- 254: Berekening niet mogelijk # Calculation not possible
+- 252: geen voertuigen binnen deze voertuigklasse gepasseerd  # No vehicles passed within this vehicle class
