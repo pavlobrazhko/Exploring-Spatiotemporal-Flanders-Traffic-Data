@@ -59,5 +59,6 @@ Bijzondere waarden: # Special values:
 - 254: Berekening niet mogelijk # Calculation not possible
 - 252: geen voertuigen binnen deze voertuigklasse gepasseerd  # No vehicles passed within this vehicle class
 
-![Distribution of Some Feature](image.png)
+![Distribution of Some Feature](/images/output_11_1.png)
+![Distribution of Some Feature](/images/output_11_1.png)
 
