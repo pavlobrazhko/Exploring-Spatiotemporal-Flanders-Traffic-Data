@@ -58,3 +58,6 @@ Bijzondere waarden: # Special values:
 - 251: Initiële waarde # Initial value
 - 254: Berekening niet mogelijk # Calculation not possible
 - 252: geen voertuigen binnen deze voertuigklasse gepasseerd  # No vehicles passed within this vehicle class
+
+![Distribution of Some Feature](image.png)
+
