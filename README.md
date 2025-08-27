@@ -63,6 +63,11 @@ The TR lane is identical to the corresponding R lane (TR10=R10,TR11=R11,TR12=R12
 
 (The measurement data for TR10 come from the same measurement loops as those for R10.)
 
+
+| ![Map](/images/output_11_1.png) |
+|:--|
+| *Placement of sensors in the Flemish region* |
+
 - Voertuigklasse 1 = This vehicle class was provided vehicles with approximate lengths between 0m and 1.00m. This data is no longer used by AWV and the traffic center. (E.g., motorcycles.) The sporadic measurements in this vehicle class are little or not reliable..
 
 - Voertuigklasse 2 = Passenger cars = vehicles with approximate length between 1.00m and 4.90m
@@ -86,6 +91,8 @@ Bijzondere waarden: # Special values:
 The concept of grouping sensors installed on the same road and in the same direction of travel was addressed using two distinct features, denoted as Ident_8 and
 Kmp_Rsys. Feature Ident_8 represents a unique road name, while feature Kmp_Rsys indicates the position from the beginning of the road. By grouping sensors based on
 features Ident_8 and Kmp_Rsys, we form clusters of sensors situated on the same road (whether single or multi-lane) and in the same travel direction.
+
+![Visual representation of the grouping by Ident_8 and Kmp_Rsys](/images/output_00_5.png)
 
 ```bash
 grouped_df = locations_df.groupby('lve_nr')['unieke_id'].unique().reset_index()
