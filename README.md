@@ -35,30 +35,64 @@ import matplotlib.pyplot as plt
 
 ```
 ## Exploration of Flanders road data
+### Metadata parameters
+The output below provides info on the parameters. Some important info summarized:
 
-### documentation
-- Voertuigklasse 1 = Deze voertuigklasse was voorzien voertuigen met geschatte lengte tussen 0m en 1,00m. Deze gegevens worden door AWV en het verkeerscentrum niet meer gebruikt. (vb. moto's.) De sporadische metingen in deze voertuigklasse zijn weinig tot niet betrouwbaar.
+Ident_8 = Reference points along the numbered roads #Pavlo. Highway name and direction
+lve_nr = Number of the LVE (Local Processing Unit). An LVE processes the data of a group of measuring points.
+Kmp_Rsys = Reference point used in the systems of the Flemish Traffic Center.
+Lane = The letter indicates the type of lane.
 
-- Voertuigklasse 2 = Personenwagens = voertuigen met geschatte lengte tussen 1,00m en 4,90m
+- **R**:   ring lane
+- **B**:   Special Crossing Bedding (BOB) or bus lane  
+- **TR**:  measurement of traffic in the opposite direction (usually at Tunnels) in the R lane  
+- **P**:   breakdown lane  
+- **W**:   parking or other road  
+- **S**:   rush hour lane  
+- **A**:   measuring point on a shaded part of the road
+ 
+Numbering starts at R10 for the first regular lane on the main roadway. Numbering increases from right/trailer to left/fast lane.
 
-- Voertuigklasse 3 = Bestelwagens = voertuigen met geschatte lengte tussen 4,90m en 6,90m
+Lanes with 09, 08, 07, ... are then to the right of this and usually represent entrance/exit lanes, merge lanes, newly added lanes, rush-hour lanes or PDOs.
 
-- Voertuigklasse 4 = Ongelede vrachtwagens = voertuigen metvgeschatte lengte tussen 6,90m en 12,00m (bv.:Vrachtwagen of trekker)
+Lanes 11, 12, 13, ... are then located to the left of lane R10.
 
-- Voertuigklasse 5 = Gelede vrachtwagens of bussen= voertuigen met geschatte lengte langer dan 12,00m
+The number 00 is used for a measuring point on the breakdown lane (P00).
 
-bv.: vrachtwagen+aanhangwagen, trekker+aanhangwagen of bus
+The TR lane is identical to the corresponding R lane (TR10=R10,TR11=R11,TR12=R12,...), only the measuring point transmits only the minute data of the "ghost traffic".
 
-voertuigsnelheid rekenkundig = Som (vi) / n (met vi = individuele snelheid van een voertuig binnen deze voertuigklasse)
-voertuigsnelheid harmonisch = n / Som(1/vi) (met vi = individuele snelheid van een voertuig binnen deze voertuigklasse)
+(The measurement data for TR10 come from the same measurement loops as those for R10.)
+
+- Voertuigklasse 1 = This vehicle class was provided vehicles with approximate lengths between 0m and 1.00m. This data is no longer used by AWV and the traffic center. (E.g., motorcycles.) The sporadic measurements in this vehicle class are little or not reliable..
+
+- Voertuigklasse 2 = Passenger cars = vehicles with approximate length between 1.00m and 4.90m
+- Voertuigklasse 3 Vans = vehicles with approximate length between 4.90m and 6.90m
+- Voertuigklasse 4 = Unarticulated trucks = vehicles with estimated length between 6.90m and 12.00m (e.g.:Truck or tractor)
+- Voertuigklasse 5 = Articulated trucks or buses= vehicles with approximate length longer than 12.00m (e.g.: truck+trailer, tractor+trailer or bus) voertuigsnelheid rekenkundig (vehicle speed arithmetic)= Sum (vi) / n (with vi = individual speed of a vehicle within this vehicle class)
 
 Waarde bereik 0..200 km/h
+
+voertuigsnelheid harmonisch = n / Som(1/vi) (met vi = individuele snelheid van een voertuig binnen deze voertuigklasse)
 
 Bijzondere waarden: # Special values:
 - 251: Initiële waarde # Initial value
 - 254: Berekening niet mogelijk # Calculation not possible
-- 252: geen voertuigen binnen deze voertuigklasse gepasseerd  # No vehicles passed within this vehicle class
+- 252: geen voertuigen binnen deze voertuigklasse gepasseerd. #no vehicles passed within this vehicle class
 
-![Distribution of Some Feature](/images/output_11_1.png)
-![Distribution of Some Feature](/images/output_11_1.png)
+![Distribution of Some Feature](/images/output_00_0.png)
+
+## Grouping sensors
+
+The concept of grouping sensors installed on the same road and in the same direction of travel was addressed using two distinct features, denoted as Ident_8 and
+Kmp_Rsys. Feature Ident_8 represents a unique road name, while feature Kmp_Rsys indicates the position from the beginning of the road. By grouping sensors based on
+features Ident_8 and Kmp_Rsys, we form clusters of sensors situated on the same road (whether single or multi-lane) and in the same travel direction.
+
+```bash
+grouped_df = locations_df.groupby('lve_nr')['unieke_id'].unique().reset_index()
+```
+
+![Grouping sensors](/images/output_15_0.png)
+
+
+
 
