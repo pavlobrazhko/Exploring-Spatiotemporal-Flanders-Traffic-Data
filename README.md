@@ -100,7 +100,7 @@ grouped_df = locations_df.groupby('lve_nr')['unieke_id'].unique().reset_index()
 ### The Types of roads in Flanders region
 The Flanders road transportation network stands as one of the densest in Europe, reflecting its pivotal role in facilitating connectivity and mobility. 
 
-| ![Map](/images/output_06a.png) |
+| ![Map](/images/output_00_6a.png) |
 |:--|
 | *Unique roads of Flander region*                                    |
 
@@ -113,6 +113,54 @@ Since one of the main tasks in the study of the data was to find the parameters 
 |:--|
 | *The Sensor Locations by Local Processing Unit*   
 
+
+###  The Sensor Locations by Traffic Lines
+
+- (B07) - special Crossing Bedding (BOB) or bus lane
+- (B08) - special Crossing Bedding (BOB) or bus lane
+- (B09) - special Crossing Bedding (BOB) or bus lane
+- (P00) - breakdown lane
+- (R06) - 4th additional lane on the right
+- (R07) - 3rd additional lane on the right
+- (R08) - 2nd additional lane on the right
+- (R09) - 1st additional lane on the right
+- (R10) - 1st lane
+- (R11) - 2nd lane
+- (R12) - 3rd lane
+- (R13) - 4th lane
+- (S09) - rush hour lane
+- (TR09) - 1st additional lane on the right
+- (TR10) - 1st ghost line
+- (TR11) - 2nd ghost line
+- (TR12) - 3rd ghost line
+- (W09) - parking or other way
+
+
+| ![Map](/images/output_18_0.png) |
+|:--|
+| *Types of roads included in the system* 
+
+### Brussels Big Ring Data
+
+In our work, we will mainly focus on examining the data related to the zone of the Brussels Ring Road, which is represented by the road R0. In this section surrounding Brussels, there are 193 sensors installed, making it the largest cluster among all the ones presented in the region.
+
+
+| ![Map](/images/output_32_0.png) |
+|:--|
+| *Brussels Big Ring - R0* 
+
+At the initial stage of data exploration for the Brussels Ring Road, three sensors [’3162’, ’3163’, ’3164’] were selected, which belong to the same group (lve_nr) of
+sensors located at the largest of the five multi-level interchanges, Knooppunt Groot-Bijgaarden west
+
+| ![Map](/images/output_32_1.png) |
+|:--|
+| * Roundabout of Groot-Bijgaarden* 
+
+At this interchange, the central traffic lanes were selected as they were considered to best represent the average traffic characteristics along the Brussels Ring Road.
+
+| ![Map](/images/output_32_2.png) |
+|:--|
+| * Roundabout of Groot-Bijgaarden*
 
 
 
