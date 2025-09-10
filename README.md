@@ -95,7 +95,28 @@ features Ident_8 and Kmp_Rsys, we form clusters of sensors situated on the same 
 grouped_df = locations_df.groupby('lve_nr')['unieke_id'].unique().reset_index()
 ```
 
-![Grouping sensors](/images/output_15_0.png)
+## Exploratory Data Analysis
+
+### The Types of roads in Flanders region
+The Flanders road transportation network stands as one of the densest in Europe, reflecting its pivotal role in facilitating connectivity and mobility. 
+
+| ![Map](/images/output_06a.png) |
+|:--|
+| *Unique roads of Flander region*                                    |
+
+
+### The Sensor Locations by Local Processing Unit
+
+Since one of the main tasks in the study of the data was to find the parameters by which it is possible to significantly simplify the spatiotemoral data, the analysis was carried out as grouped sensors according to the lve_nr1 feature .
+
+| ![Map](/images/output_15_0.png) |
+|:--|
+| *The Sensor Locations by Local Processing Unit*   
+
+
+
+
+
 
 
 
