@@ -61,9 +61,6 @@ The number 00 is used for a measuring point on the breakdown lane (P00).
 
 The TR lane is identical to the corresponding R lane (TR10=R10,TR11=R11,TR12=R12,...), only the measuring point transmits only the minute data of the "ghost traffic".
 
-(The measurement data for TR10 come from the same measurement loops as those for R10.)
-
-
 | ![Map](/images/output_11_1.png) |
 |:--|
 | *Placement of sensors in the Flemish region* |
@@ -84,15 +81,15 @@ Bijzondere waarden: # Special values:
 - 254: Berekening niet mogelijk # Calculation not possible
 - 252: geen voertuigen binnen deze voertuigklasse gepasseerd. #no vehicles passed within this vehicle class
 
-![Distribution of Some Feature](/images/output_00_0.png)
-
 ## Grouping sensors
 
 The concept of grouping sensors installed on the same road and in the same direction of travel was addressed using two distinct features, denoted as Ident_8 and
 Kmp_Rsys. Feature Ident_8 represents a unique road name, while feature Kmp_Rsys indicates the position from the beginning of the road. By grouping sensors based on
 features Ident_8 and Kmp_Rsys, we form clusters of sensors situated on the same road (whether single or multi-lane) and in the same travel direction.
 
-![Visual representation of the grouping by Ident_8 and Kmp_Rsys](/images/output_00_5.png)
+| ![Map](/images/output_00_5.png) |
+|:--|
+| *Visual representation of the grouping by Ident_8 and Kmp_Rsys* |
 
 ```bash
 grouped_df = locations_df.groupby('lve_nr')['unieke_id'].unique().reset_index()
