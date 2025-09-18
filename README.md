@@ -157,14 +157,23 @@ Time-series data often contain fluctuations and irregularities that can make ana
 |:--|
 | *Sensor [’3162’] data before applying Rolling window* |
 
-As can be seen from Figure 6.3, the data on traffic intensity changes during two days (from 2022-10-01 to 2022-10-03 for class 'class_2_verkeersintensiteit') have a discrete nature, and interpreting seasonality (in this case, daily) is possible but quite challenging.Retry
+As can be seen that the data on traffic intensity changes during two days (from 2022-10-01 to 2022-10-03 for class 'class_2_verkeersintensiteit') have a discrete nature, and interpreting seasonality (in this case, daily) is possible but quite challenging.Retry
 
 | ![Map](/images/output_70_2.png) |
 |:--|
 | *Sensor [’3162’] data after applying Rolling window size=5* |
 
+Furthermore, the following table presents statistics regarding the reduction in the number of rows with missing data, based on the size of the Rolling Window. It is important, however, to strike a balance between data smoothing and the inevitable information loss it entails.
 
+| ![Map](/images/output_70_3.png) |
+|:--|
+| *Sensor[’3162’] - NaN rows and window size dependency correlation* |
 
+As much as we may desire, Rolling Windows is not a miraculous solution for handling missing data. Even when expanding the window size up to 300 minutes, a substantial amount of missing data still persists. These data gaps are characterized by prolonged time periods and can be attributed to technical sensor malfunctions requiring significant time for resolution, or road surface replacement, which also leads to significant data gaps.
+
+| ![Map](/images/output_70_4.png) |
+|:--|
+| *Sensor [’3162’] Rolling window size=300* |
 
 
 ## Seasonality
