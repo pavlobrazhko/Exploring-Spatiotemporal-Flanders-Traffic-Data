@@ -149,7 +149,22 @@ At this interchange, the central traffic lanes were selected as they were consid
 |:--|
 | * Roundabout of Groot-Bijgaarden*
 
-## Grouping sensors
+## Rolling Window
+
+Time-series data often contain fluctuations and irregularities that can make analysis and interpretation challenging. In such cases, applying techniques like Rolling windows with a 5-minute interval can significantly contribute to stabilizing the data. The application of Rolling windows also facilitates data interpolation, enabling the filling of missing values or gaps within the time-series. By allowing interpolation intervals of up to 4 minutes, the technique helps reduce the number of empty rows, effectively maximizing the data utilization. The strategic application of rolling windows with a 5-minute interval presents a powerful solution for stabilizing time-series data, mitigating short-term fluctuations.
+
+
+
+
+## Seasonality
+
+One of the benefits of using a tool like Rolling Windows is that when you apply enough smoothing to the data, it becomes easier to detect seasonality. So Figure 6.6 illustrates the data received from the ['3162'] sensor for three weeks in October 2022. Seasonality by days of the week is easy to read on the graph.
+
+| ![Map](/images/output_80_0.png) |
+|:--|
+| *Seasonality. Sensor [’3162’] Rolling window size=100* |
+
+## Grouping sensors by Ident_8 and Kmp_Rsys
 
 The concept of grouping sensors installed on the same road and in the same direction of travel was addressed using two distinct features, denoted as Ident_8 and
 Kmp_Rsys. Feature Ident_8 represents a unique road name, while feature Kmp_Rsys indicates the position from the beginning of the road. By grouping sensors based on
@@ -171,7 +186,7 @@ grouped_df = locations_df.groupby('lve_nr')['unieke_id'].unique().reset_index()
 
 ## Results
 
-The key outcome of my internship experience is the preparation of a transportation traffic database for the Flemish region. Through this work, a significant reduction in data volume was successfully achieved. For instance, raw data solely from the Big Brussels Ring (R0) since April 2021 amounted to 26.3 GB, which is just 4.5% of the total number of sensors installed across the entire Flemish region (193 out of 4477 items). The reduction in data volume was accomplished by consolidating data from sensors placed on the same road segment and operating in the same direction (sensor grouping). Furthermore, the decision was made to abandon the categorization of vehicles based on their dimensions ('verkeersintensiteit').
+The key outcome of my internship experience is the preparation of a transportation traffic database for the Flemish region. Through this work, a significant reduction in data volume was successfully achieved.  For instance, raw data solely from the Big Brussels Ring (R0) since April 2021 amounted to 26.3 GB, which is just 4.5% of the total number of sensors installed across the entire Flemish region (193 out of 4477 items). The reduction in data volume was accomplished by consolidating data from sensors placed on the same road segment and operating in the same direction (sensor grouping). Furthermore, the decision was made to abandon the categorization of vehicles based on their dimensions ('verkeersintensiteit').
 
 
 
