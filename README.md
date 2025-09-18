@@ -147,11 +147,22 @@ At this interchange, the central traffic lanes were selected as they were consid
 
 | ![Map](/images/output_32_2.png) |
 |:--|
-| * Roundabout of Groot-Bijgaarden*
+| * Roundabout of Groot-Bijgaarden* |
 
 ## Rolling Window
 
 Time-series data often contain fluctuations and irregularities that can make analysis and interpretation challenging. In such cases, applying techniques like Rolling windows with a 5-minute interval can significantly contribute to stabilizing the data. The application of Rolling windows also facilitates data interpolation, enabling the filling of missing values or gaps within the time-series. By allowing interpolation intervals of up to 4 minutes, the technique helps reduce the number of empty rows, effectively maximizing the data utilization. The strategic application of rolling windows with a 5-minute interval presents a powerful solution for stabilizing time-series data, mitigating short-term fluctuations.
+
+| ![Map](/images/output_70_1.png) |
+|:--|
+| *Sensor [’3162’] data before applying Rolling window* |
+
+As can be seen from Figure 6.3, the data on traffic intensity changes during two days (from 2022-10-01 to 2022-10-03 for class 'class_2_verkeersintensiteit') have a discrete nature, and interpreting seasonality (in this case, daily) is possible but quite challenging.Retry
+
+| ![Map](/images/output_70_2.png) |
+|:--|
+| *Sensor [’3162’] data after applying Rolling window size=5* |
+
 
 
 
