@@ -169,6 +169,9 @@ grouped_df = locations_df.groupby('lve_nr')['unieke_id'].unique().reset_index()
 |:--|
 | *Data Processing Workflow Flowchart* |
 
+## Results
+
+The key outcome of my internship experience is the preparation of a transportation traffic database for the Flemish region. Through this work, a significant reduction in data volume was successfully achieved. For instance, raw data solely from the Big Brussels Ring (R0) since April 2021 amounted to 26.3 GB, which is just 4.5% of the total number of sensors installed across the entire Flemish region (193 out of 4477 items). The reduction in data volume was accomplished by consolidating data from sensors placed on the same road segment and operating in the same direction (sensor grouping). Furthermore, the decision was made to abandon the categorization of vehicles based on their dimensions ('verkeersintensiteit').
 
 
 
