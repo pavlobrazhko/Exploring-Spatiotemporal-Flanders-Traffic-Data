@@ -81,19 +81,6 @@ Bijzondere waarden: # Special values:
 - 254: Berekening niet mogelijk # Calculation not possible
 - 252: geen voertuigen binnen deze voertuigklasse gepasseerd. #no vehicles passed within this vehicle class
 
-## Grouping sensors
-
-The concept of grouping sensors installed on the same road and in the same direction of travel was addressed using two distinct features, denoted as Ident_8 and
-Kmp_Rsys. Feature Ident_8 represents a unique road name, while feature Kmp_Rsys indicates the position from the beginning of the road. By grouping sensors based on
-features Ident_8 and Kmp_Rsys, we form clusters of sensors situated on the same road (whether single or multi-lane) and in the same travel direction.
-
-| ![Map](/images/output_00_5.png) |
-|:--|
-| *Visual representation of the grouping by Ident_8 and Kmp_Rsys* |
-
-```bash
-grouped_df = locations_df.groupby('lve_nr')['unieke_id'].unique().reset_index()
-```
 
 ## Exploratory Data Analysis
 
@@ -161,6 +148,26 @@ At this interchange, the central traffic lanes were selected as they were consid
 | ![Map](/images/output_32_2.png) |
 |:--|
 | * Roundabout of Groot-Bijgaarden*
+
+## Grouping sensors
+
+The concept of grouping sensors installed on the same road and in the same direction of travel was addressed using two distinct features, denoted as Ident_8 and
+Kmp_Rsys. Feature Ident_8 represents a unique road name, while feature Kmp_Rsys indicates the position from the beginning of the road. By grouping sensors based on
+features Ident_8 and Kmp_Rsys, we form clusters of sensors situated on the same road (whether single or multi-lane) and in the same travel direction.
+
+| ![Map](/images/output_00_5.png) |
+|:--|
+| *Visual representation of the grouping by Ident_8 and Kmp_Rsys* |
+
+```bash
+grouped_df = locations_df.groupby('lve_nr')['unieke_id'].unique().reset_index()
+```
+
+## Workflow
+
+| ![Map](/images/output_90_0.png) |
+|:--|
+| *Data Processing Workflow Flowchart* |
 
 
 
