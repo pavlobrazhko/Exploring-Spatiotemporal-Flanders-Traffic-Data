@@ -192,7 +192,13 @@ Since only major roads have 0001 and 0002 endings in the Ident_8 parameter, we c
 
 | ![Map](/images/output_50_0.png) |
 |:--|
-| *Extracting information about missing data* |
+| *Sensors of main roads and enter-exit roads* |
+
+Sensors are presented both on the main roads and on the roads intended for arrival and exit on the main roads.
+
+| ![Map](/images/output_50_1.png) |
+|:--|
+| *Enter-exit roads* |
 
 
 
