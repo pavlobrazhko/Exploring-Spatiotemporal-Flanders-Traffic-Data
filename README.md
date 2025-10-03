@@ -36,7 +36,7 @@ import matplotlib.pyplot as plt
 ```
 ## Exploration of Flanders road data
 
-### Metadata parameters
+### Metadata parameters - Road numbering system in the Flemish Region
 
 At the moment, the number of sensors involved in the collection of traffic information in the Flemish region is 4477 positions.
 
@@ -45,8 +45,6 @@ At the moment, the number of sensors involved in the collection of traffic infor
 | *Placement of sensors in the Flemish region* |
 
 The output below provides info on the parameters. Some important info summarized:
-
-###  Road numbering system in the Flemish Region
 
 - **R**:   ring lane
 - **B**:   Special Crossing Bedding (BOB) or bus lane  
