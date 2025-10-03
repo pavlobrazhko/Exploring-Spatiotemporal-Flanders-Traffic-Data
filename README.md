@@ -36,7 +36,7 @@ import matplotlib.pyplot as plt
 ```
 ## Exploration of Flanders road data
 
-### Metadata parameters - Road numbering system in the Flemish Region
+### Metadata parameters
 
 At the moment, the number of sensors involved in the collection of traffic information in the Flemish region is 4477 positions.
 
@@ -44,7 +44,7 @@ At the moment, the number of sensors involved in the collection of traffic infor
 |:--|
 | *Placement of sensors in the Flemish region* |
 
-The output below provides info on the parameters. Some important info summarized:
+The output below provides info on the parameters.
 
 - **R**:   ring lane
 - **B**:   Special Crossing Bedding (BOB) or bus lane  
@@ -68,6 +68,8 @@ The TR lane is identical to the corresponding R lane (TR10=R10,TR11=R11,TR12=R12
 |:--|
 | *Order and designation of lines on the main roadway* |
 
+Each of the five classes of vehicles has the following characteristics:
+
 - Voertuigklasse 1 = This vehicle class was provided vehicles with approximate lengths between 0m and 1.00m. This data is no longer used by AWV and the traffic center. (E.g., motorcycles.) The sporadic measurements in this vehicle class are little or not reliable..
 
 - Voertuigklasse 2 = Passenger cars = vehicles with approximate length between 1.00m and 4.90m
@@ -79,7 +81,7 @@ Waarde bereik 0..200 km/h
 
 voertuigsnelheid harmonisch = n / Som(1/vi) (met vi = individuele snelheid van een voertuig binnen deze voertuigklasse)
 
-Bijzondere waarden: # Special values:
+Special values:
 - 251: Initiële waarde # Initial value
 - 254: Berekening niet mogelijk # Calculation not possible
 - 252: geen voertuigen binnen deze voertuigklasse gepasseerd. #no vehicles passed within this vehicle class
@@ -92,7 +94,7 @@ The Flanders road transportation network stands as one of the densest in Europe,
 
 | ![Map](/images/output_00_6a.png) |
 |:--|
-| *Unique roads of Flander region*                                    |
+| *Unique roads of Flander region*  |                             |
 
 
 ### The Sensor Locations by Local Processing Unit
@@ -101,10 +103,14 @@ Since one of the main tasks in the study of the data was to find the parameters 
 
 | ![Map](/images/output_15_0.png) |
 |:--|
-| *The Sensor Locations by Local Processing Unit*   
+| *The Sensor Locations by Local Processing Unit*  |
 
+As the analysis showed, the number of sensors included in the group can be quite diverse. This is due to the technical parameters of connecting sensors. The most common LVE groups are three, four, six and seven sensors.
 
 ###  The Sensor Locations by Traffic Lines
+
+The encoding of a specific lane of the road is coded in the 'Rijstrook' column
+and has the following values:
 
 - (B07) - special Crossing Bedding (BOB) or bus lane
 - (B08) - special Crossing Bedding (BOB) or bus lane
@@ -128,7 +134,11 @@ Since one of the main tasks in the study of the data was to find the parameters 
 
 | ![Map](/images/output_18_0.png) |
 |:--|
-| *Types of roads included in the system* 
+| *Types of roads included in the system* |
+
+During the study of the Ident_8 characteristics, it was discovered that two different
+direction of ”main road” having the last four digits 0001 and 0001 are quite balanced
+(1447 verse 1521 respectively).
 
 ### Brussels Big Ring Data
 
@@ -137,22 +147,48 @@ In our work, we will mainly focus on examining the data related to the zone of t
 
 | ![Map](/images/output_32_0.png) |
 |:--|
-| *Brussels Big Ring - R0* 
+| *Brussels Big Ring - R0*       |
 
 At the initial stage of data exploration for the Brussels Ring Road, three sensors [’3162’, ’3163’, ’3164’] were selected, which belong to the same group (lve_nr) of
 sensors located at the largest of the five multi-level interchanges, Knooppunt Groot-Bijgaarden west
 
-| ![Map](/images/output_32_1.png) |
+| ![Map](/images/output_32_1.png)   |
 |:--|
-| * Roundabout of Groot-Bijgaarden* 
+| *Roundabout of Groot-Bijgaarden* |
 
 At this interchange, the central traffic lanes were selected as they were considered to best represent the average traffic characteristics along the Brussels Ring Road.
 
 | ![Map](/images/output_32_2.png) |
 |:--|
-| * Roundabout of Groot-Bijgaarden* |
+| *Locations 3162, 3163, 3164* |
+
+The choice of multiple sensors was motivated by the goal of reducing the amount of data while retaining the ability to analyze the system as a whole.
+
+### Road Types of R0
+
+| ![Map](/images/output_28_0.png) |
+|:--|
+| *Road Types of R0* |
+
+Let’s examine the types of roads represented in the R0 cluster for the Brussels Big Ring. There are only four types of roads: R10, R11, R12, and R13, with one, two, three, and four lanes, respectively. Additionally, the four-lane road (R13) is represented by only one instance in the data set.
+
+### Missing Timestamps
+
+During the study of missing data from sensors, for example, we analyzed the number of monthly gaps for the sensor [’3162’]. The total time when the sensor did not send a signal to the system was also calculated. This time can be quite significant. These gaps cannot be easily recovered using common date mining methods.
+
+| ![Map](/images/output_40_0.png) |
+|:--|
+| *Extracting information about missing data* |
 
 ## Data Mining Techniques
+
+### Data Reduction Approach
+
+Ultimately, the main strategy was to reduce the amount of data for subsequent work with them and identify insights. The idea is to merge information about different types of vehicles together. Since the traffic database in the Flemish region contains information about four different types of vehicles, we therefore have data on the number of vehicles passing and the harmonic speed for all four types (8 features). When we combine these data, the output we have is the combined traffic flow — the number of passing cars and their harmonic speed. In other words, we are preparing data for consideration in a more general way, which is logical for the initial stage of work on this large project.
+
+### Enter-exit sensors
+
+Since only major roads have 0001 and 0002 endings in the Ident_8 parameter, we can exclude all other sensors to start the traffic analysis. Excluded sensors are installed on auxiliary roads intended for entry and exit from main roads. But first, let’s look at these types of sensors on a map.
 
 
 
