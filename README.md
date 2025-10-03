@@ -36,6 +36,14 @@ import matplotlib.pyplot as plt
 ```
 ## Exploration of Flanders road data
 ### Metadata parameters
+
+At the moment, the number of sensors involved in the collection of traffic information in the Flemish region is 4477 positions.
+
+| ![Map](/images/output_11_1.png) |
+|:--|
+| *Placement of sensors in the Flemish region* |
+
+
 The output below provides info on the parameters. Some important info summarized:
 
 Ident_8 = Reference points along the numbered roads #Pavlo. Highway name and direction
@@ -61,9 +69,9 @@ The number 00 is used for a measuring point on the breakdown lane (P00).
 
 The TR lane is identical to the corresponding R lane (TR10=R10,TR11=R11,TR12=R12,...), only the measuring point transmits only the minute data of the "ghost traffic".
 
-| ![Map](/images/output_11_1.png) |
+| ![Map](/images/output_10_0.png) |
 |:--|
-| *Placement of sensors in the Flemish region* |
+| *Order and designation of lines on the main roadway* |
 
 - Voertuigklasse 1 = This vehicle class was provided vehicles with approximate lengths between 0m and 1.00m. This data is no longer used by AWV and the traffic center. (E.g., motorcycles.) The sporadic measurements in this vehicle class are little or not reliable..
 
