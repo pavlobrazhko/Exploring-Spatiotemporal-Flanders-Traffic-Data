@@ -1,4 +1,4 @@
-# Exploring-Spatiotemporal-Flanders-Traffic-Data
+# Exploring Spatiotemporal Flanders Traffic Data
 
 The main objective of this work was to prepare Spatiotemporal Trajectory data using a methodology developed by Sirris. Focusing on mobility data for the Small Ring Road of Brussels. However, the current
 task is even more significant: to study traffic data structures and prepare data for the entire Flemish region. This work discusses the application of various techniques for data reduction and initial processing. Challenges encountered during the work are discussed, as well as an analysis of the pros and cons of the employed tools. It is worth noting that the task of studying data preprocessing and primary processing to reduce input data was successfully completed. Throughout this experience, I gained valuable skills in working with real-world data. Collaborative efforts with my mentor to address ongoing challenges proved instrumental in enhancing the quality of our approach and the depth of our insights.
@@ -148,6 +148,11 @@ At this interchange, the central traffic lanes were selected as they were consid
 | ![Map](/images/output_32_2.png) |
 |:--|
 | * Roundabout of Groot-Bijgaarden* |
+
+## Data Mining Techniques
+
+
+
 
 ## Rolling Window
 
