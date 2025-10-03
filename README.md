@@ -200,12 +200,20 @@ Sensors are presented both on the main roads and on the roads intended for arriv
 |:--|
 | *Enter-exit roads* |
 
+The total number of sensors installed in the Flemish region is 4,477. Among them, 1,508 sensors are installed on roads designed for entry and exit to main roads, and 2,969 sensors are installed on main roads.
 
+In our study, we are examining sensors on main roads to identify characteristic patterns, as they contain the primary information about traffic behavior. While not disregarding the significance of data from sensors on entry and exit roads, it is important to note that they represent specific cases and may be of interest for particular, focused tasks.
+
+Each sensor belongs to a group of detectors (lve_nr) characterized by their close proximity in location.
 
 
 ## Rolling Window
 
-Time-series data often contain fluctuations and irregularities that can make analysis and interpretation challenging. In such cases, applying techniques like Rolling windows with a 5-minute interval can significantly contribute to stabilizing the data. The application of Rolling windows also facilitates data interpolation, enabling the filling of missing values or gaps within the time-series. By allowing interpolation intervals of up to 4 minutes, the technique helps reduce the number of empty rows, effectively maximizing the data utilization. The strategic application of rolling windows with a 5-minute interval presents a powerful solution for stabilizing time-series data, mitigating short-term fluctuations.
+Time-series data often contain fluctuations and irregularities that can make analysis and interpretation challenging. In such cases, applying techniques like Rolling windows with a 5-minute interval can significantly contribute to stabilizing the data.
+
+The application of Rolling windows also facilitates data interpolation, enabling the filling of missing values or gaps within the time-series. By allowing interpolation intervals of up to 4 minutes, the technique helps reduce the number of empty rows, effectively maximizing the data utilization.
+
+The strategic application of rolling windows with a 5-minute interval presents a powerful solution for stabilizing time-series data, mitigating short-term fluctuations.
 
 | ![Map](/images/output_70_1.png) |
 |:--|
@@ -230,9 +238,9 @@ As much as we may desire, Rolling Windows is not a miraculous solution for handl
 | *Sensor [’3162’] Rolling window size=300* |
 
 
-## Seasonality
+### Seasonality
 
-One of the benefits of using a tool like Rolling Windows is that when you apply enough smoothing to the data, it becomes easier to detect seasonality. So Figure 6.6 illustrates the data received from the ['3162'] sensor for three weeks in October 2022. Seasonality by days of the week is easy to read on the graph.
+One of the benefits of using a tool like Rolling Windows is that when you apply enough smoothing to the data, it becomes easier to detect seasonality.The data received from the ['3162'] sensor for three weeks in October 2022. Seasonality by days of the week is easy to read on the graph.
 
 | ![Map](/images/output_80_0.png) |
 |:--|
@@ -240,9 +248,7 @@ One of the benefits of using a tool like Rolling Windows is that when you apply 
 
 ## Grouping sensors by Ident_8 and Kmp_Rsys
 
-The concept of grouping sensors installed on the same road and in the same direction of travel was addressed using two distinct features, denoted as Ident_8 and
-Kmp_Rsys. Feature Ident_8 represents a unique road name, while feature Kmp_Rsys indicates the position from the beginning of the road. By grouping sensors based on
-features Ident_8 and Kmp_Rsys, we form clusters of sensors situated on the same road (whether single or multi-lane) and in the same travel direction.
+The concept of grouping sensors installed on the same road and in the same direction of travel was addressed using two distinct features, denoted as Ident_8 and Kmp_Rsys. Feature Ident_8 represents a unique road name, while feature Kmp_Rsys indicates the position from the beginning of the road. By grouping sensors based on features Ident_8 and Kmp_Rsys, we form clusters of sensors situated on the same road (whether single or multi-lane) and in the same travel  direction.
 
 | ![Map](/images/output_00_5.png) |
 |:--|
@@ -253,6 +259,9 @@ grouped_df = locations_df.groupby('lve_nr')['unieke_id'].unique().reset_index()
 ```
 
 ## Workflow
+
+You can see the stages of preparation and processing of transporta-
+tion data for the Flemish region.
 
 | ![Map](/images/output_90_0.png) |
 |:--|
