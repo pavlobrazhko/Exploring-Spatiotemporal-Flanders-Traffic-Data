@@ -35,6 +35,7 @@ import matplotlib.pyplot as plt
 
 ```
 ## Exploration of Flanders road data
+
 ### Metadata parameters
 
 At the moment, the number of sensors involved in the collection of traffic information in the Flemish region is 4477 positions.
@@ -43,13 +44,9 @@ At the moment, the number of sensors involved in the collection of traffic infor
 |:--|
 | *Placement of sensors in the Flemish region* |
 
-
 The output below provides info on the parameters. Some important info summarized:
 
-Ident_8 = Reference points along the numbered roads #Pavlo. Highway name and direction
-lve_nr = Number of the LVE (Local Processing Unit). An LVE processes the data of a group of measuring points.
-Kmp_Rsys = Reference point used in the systems of the Flemish Traffic Center.
-Lane = The letter indicates the type of lane.
+###  Road numbering system in the Flemish Region
 
 - **R**:   ring lane
 - **B**:   Special Crossing Bedding (BOB) or bus lane  
