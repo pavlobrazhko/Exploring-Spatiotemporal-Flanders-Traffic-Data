@@ -190,6 +190,10 @@ Ultimately, the main strategy was to reduce the amount of data for subsequent wo
 
 Since only major roads have 0001 and 0002 endings in the Ident_8 parameter, we can exclude all other sensors to start the traffic analysis. Excluded sensors are installed on auxiliary roads intended for entry and exit from main roads. But first, let’s look at these types of sensors on a map.
 
+| ![Map](/images/output_50_0.png) |
+|:--|
+| *Extracting information about missing data* |
+
 
 
 
