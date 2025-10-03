@@ -225,6 +225,8 @@ As can be seen that the data on traffic intensity changes during two days (from 
 |:--|
 | *Sensor [’3162’] data after applying Rolling window size=5* |
 
+The data exhibit enhanced stability following the application of rolling windows. This is advantageous for uncovering spatiotemporal patterns.
+
 Furthermore, the following table presents statistics regarding the reduction in the number of rows with missing data, based on the size of the Rolling Window. It is important, however, to strike a balance between data smoothing and the inevitable information loss it entails.
 
 | ![Map](/images/output_70_3.png) |
